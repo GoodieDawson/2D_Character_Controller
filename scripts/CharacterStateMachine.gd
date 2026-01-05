@@ -9,7 +9,10 @@ var states: Dictionary[String, CharacterState] = {}
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	var children: Array[CharacterState] = get_children() as Array[CharacterState]
+	var children: Array[CharacterState]
+	for child in get_children():
+		if child is CharacterState:
+			children.append(child)
 	for child in children:
 		child.character_state_machine = self
 		states[child.name.to_lower()] = child

@@ -1,7 +1,8 @@
-[gd_scene load_steps=26 format=3 uid="uid://boi4o3y07npa6"]
+[gd_scene load_steps=27 format=3 uid="uid://boi4o3y07npa6"]
 
 [ext_resource type="Texture2D" uid="uid://dfplt20ewu2ox" path="res://assets/sprites/knight.png" id="1_3vyb7"]
-[ext_resource type="Script" uid="uid://73xd0jkqteqj" path="res://scripts/player.gd" id="1_g2els"]
+[ext_resource type="Script" uid="uid://xry0u06p8356" path="res://scripts/CharacterStateMachine.gd" id="2_qhqgy"]
+[ext_resource type="Script" uid="uid://bpkyf83qa8rfh" path="res://scripts/idle.gd" id="3_qhqgy"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_g2els"]
 atlas = ExtResource("1_3vyb7")
@@ -174,7 +175,6 @@ radius = 5.0
 [node name="Player" type="CharacterBody2D"]
 z_index = 5
 collision_layer = 2
-script = ExtResource("1_g2els")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -12)
@@ -186,3 +186,12 @@ frame_progress = 0.639204
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -5)
 shape = SubResource("CircleShape2D_fjrip")
+
+[node name="CharacterStateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+script = ExtResource("2_qhqgy")
+initial_state = NodePath("Idle")
+metadata/_custom_type_script = "uid://xry0u06p8356"
+
+[node name="Idle" type="Node" parent="CharacterStateMachine"]
+script = ExtResource("3_qhqgy")
+metadata/_custom_type_script = "uid://cxvwdbvjmgk21"
