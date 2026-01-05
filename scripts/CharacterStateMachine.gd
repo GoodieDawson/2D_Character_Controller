@@ -16,6 +16,8 @@ func _ready() -> void:
 	for child in children:
 		child.character_state_machine = self
 		states[child.name.to_lower()] = child
+		
+	initial_state.enter()
 	current_state = initial_state
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

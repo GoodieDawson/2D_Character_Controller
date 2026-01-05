@@ -179,9 +179,7 @@ collision_layer = 2
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -12)
 sprite_frames = SubResource("SpriteFrames_tuyoq")
-animation = &"jump"
-autoplay = "idle"
-frame_progress = 0.639204
+animation = &"idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -5)
@@ -192,6 +190,7 @@ script = ExtResource("2_qhqgy")
 initial_state = NodePath("Idle")
 metadata/_custom_type_script = "uid://xry0u06p8356"
 
-[node name="Idle" type="Node" parent="CharacterStateMachine"]
+[node name="Idle" type="Node" parent="CharacterStateMachine" node_paths=PackedStringArray("animated_sprite_2d")]
 script = ExtResource("3_qhqgy")
+animated_sprite_2d = NodePath("../../AnimatedSprite2D")
 metadata/_custom_type_script = "uid://cxvwdbvjmgk21"
