@@ -1,7 +1,8 @@
-class_name CharacterState
+class_name CharacterState 
+
 extends Node
 
-var character_state_machine: CharacterBody2D
+var character_state_machine: CharacterStateMachine
 
 func enter() -> void:
 	pass
@@ -12,5 +13,5 @@ func exit() -> void:
 func update(delta: float) -> void:
 	pass
 
-func update_process(delta: float) -> void:
+func physics_update(delta: float) -> void:
 	pass
