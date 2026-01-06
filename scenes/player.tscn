@@ -1,10 +1,11 @@
-[gd_scene load_steps=29 format=3 uid="uid://boi4o3y07npa6"]
+[gd_scene load_steps=30 format=3 uid="uid://boi4o3y07npa6"]
 
 [ext_resource type="Texture2D" uid="uid://dfplt20ewu2ox" path="res://assets/sprites/knight.png" id="1_3vyb7"]
-[ext_resource type="Script" uid="uid://dtvms5xehv8ox" path="res://scenes/test.gd" id="1_qlg0r"]
 [ext_resource type="Script" uid="uid://xry0u06p8356" path="res://scripts/CharacterStateMachine.gd" id="2_qhqgy"]
 [ext_resource type="Script" uid="uid://bpkyf83qa8rfh" path="res://scripts/idle.gd" id="3_qhqgy"]
 [ext_resource type="Script" uid="uid://dj7okb7dqu66k" path="res://scripts/run.gd" id="4_dqkch"]
+[ext_resource type="Script" uid="uid://b6o82lt41pml" path="res://scripts/jump.gd" id="5_qlg0r"]
+[ext_resource type="Script" uid="uid://cuedx644xad3n" path="res://scripts/fall.gd" id="6_tuyoq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_g2els"]
 atlas = ExtResource("1_3vyb7")
@@ -177,7 +178,6 @@ radius = 5.0
 [node name="Player" type="CharacterBody2D"]
 z_index = 5
 collision_layer = 2
-script = ExtResource("1_qlg0r")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -12)
@@ -201,6 +201,18 @@ metadata/_custom_type_script = "uid://cxvwdbvjmgk21"
 
 [node name="Run" type="Node" parent="CharacterStateMachine" node_paths=PackedStringArray("character_body_2d", "animated_sprite_2d")]
 script = ExtResource("4_dqkch")
+character_body_2d = NodePath("../..")
+animated_sprite_2d = NodePath("../../AnimatedSprite2D")
+metadata/_custom_type_script = "uid://cxvwdbvjmgk21"
+
+[node name="Jump" type="Node" parent="CharacterStateMachine" node_paths=PackedStringArray("character_body_2d", "animated_sprite_2d")]
+script = ExtResource("5_qlg0r")
+character_body_2d = NodePath("../..")
+animated_sprite_2d = NodePath("../../AnimatedSprite2D")
+metadata/_custom_type_script = "uid://cxvwdbvjmgk21"
+
+[node name="Fall" type="Node" parent="CharacterStateMachine" node_paths=PackedStringArray("character_body_2d", "animated_sprite_2d")]
+script = ExtResource("6_tuyoq")
 character_body_2d = NodePath("../..")
 animated_sprite_2d = NodePath("../../AnimatedSprite2D")
 metadata/_custom_type_script = "uid://cxvwdbvjmgk21"

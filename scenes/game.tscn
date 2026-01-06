@@ -363,7 +363,7 @@ tile_map_data = PackedByteArray("AAD+/wIAAAAAAAAAAAD+/wMAAAAAAAEAAAD+/wQAAAAAAAE
 tile_set = SubResource("TileSet_lbhrr")
 
 [node name="Player" parent="." instance=ExtResource("1_uwrxv")]
-position = Vector2(36, 29)
+position = Vector2(-6, 8)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(1, -6)
@@ -424,8 +424,10 @@ theme_override_font_sizes/font_size = 8
 text = "Space to jump"
 
 [node name="ScoreLabel" type="Label" parent="Labels"]
-offset_right = 76.0
-offset_bottom = 30.0
+offset_left = 99.0
+offset_top = 2.0
+offset_right = 175.0
+offset_bottom = 32.0
 theme_override_colors/font_color = Color(0.0117647, 0.14902, 0.34902, 1)
 theme_override_fonts/font = ExtResource("9_0tnpc")
 theme_override_font_sizes/font_size = 8
