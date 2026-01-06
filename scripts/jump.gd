@@ -5,6 +5,7 @@ const JUMP_VELOCITY = -300.0
 
 func enter() -> void:
 	character_body_2d.velocity.y = JUMP_VELOCITY
+	animated_sprite_2d.play("jump")
 
 func physics_update(delta: float) -> void:
 	
